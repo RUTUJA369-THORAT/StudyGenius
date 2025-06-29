@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyGenius - Smart Study Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="book">
+                <div class="inner">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <p>Preparing your study genius...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>StudyGenius
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#planner">Planner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#progress">Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#templates">Templates</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-sm theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <h1>Smart Study Planning Made Simple</h1>
+                    <p class="lead">Create personalized study schedules based on your subjects, priorities, and available time. Achieve your academic goals with our intelligent planner.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#planner" class="btn btn-primary">Get Started</a>
+                        <a href="#features" class="btn btn-outline-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="img.jpeg" alt="Student studying" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Powerful Features</h2>
+                <p>Everything you need for effective study planning</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="icon bg-primary">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Priority-Based</h3>
+                        <p>Allocate more time to high-priority subjects with our weighted system.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="icon bg-success">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>Visualize your study progress with charts and completion metrics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="icon bg-info">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Suggestions</h3>
+                        <p>Get smart recommendations to optimize your study sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planner Section -->
+    <section id="planner" class="planner">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Create Your Study Plan</h2>
+                <p>Customize your schedule based on your subjects and available time</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-up">
+                    <div class="card form-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Add Subjects</h3>
+                            <form id="subjectForm">
+                                <div class="mb-3">
+                                    <label for="subjectName" class="form-label">Subject Name</label>
+                                    <input type="text" class="form-control" id="subjectName" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="importance" class="form-label">Importance</label>
+                                        <select class="form-select" id="importance">
+                                            <option value="3">High 🔴</option>
+                                            <option value="2" selected>Medium 🟡</option>
+                                            <option value="1">Low 🟢</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="difficulty" class="form-label">Difficulty</label>
+                                        <select class="form-select" id="difficulty">
+                                            <option value="3">Hard</option>
+                                            <option value="2" selected>Medium</option>
+                                            <option value="1">Easy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Add Subject</button>
+                            </form>
+                            
+                            <div class="subject-list mt-4">
+                                <h4>Your Subjects</h4>
+                                <ul id="subjectsContainer" class="list-group">
+                                    <!-- Subjects will be added here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="card form-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Set Study Time</h3>
+                            <form id="timeForm">
+                                <div class="mb-3">
+                                    <label for="dailyHours" class="form-label">Daily Study Hours</label>
+                                    <input type="number" class="form-control" id="dailyHours" min="1" max="16" value="4" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="studyDays" class="form-label">Study Days</label>
+                                    <div class="days-selector">
+                                        <button type="button" class="day-btn active" data-day="Mon">Mon</button>
+                                        <button type="button" class="day-btn active" data-day="Tue">Tue</button>
+                                        <button type="button" class="day-btn active" data-day="Wed">Wed</button>
+                                        <button type="button" class="day-btn active" data-day="Thu">Thu</button>
+                                        <button type="button" class="day-btn active" data-day="Fri">Fri</button>
+                                        <button type="button" class="day-btn" data-day="Sat">Sat</button>
+                                        <button type="button" class="day-btn" data-day="Sun">Sun</button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="startDate" class="form-label">Start Date</label>
+                                    <input type="date" class="form-control" id="startDate" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Generate Schedule</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4 timetable-card" id="timetableContainer" style="display: none;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="card-title m-0">Your Study Timetable</h3>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-outline-secondary" id="savePlanBtn">
+                                        <i class="fas fa-save"></i> Save
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" id="printPlanBtn">
+                                        <i class="fas fa-print"></i> Print
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="timetable">
+                                <!-- Timetable will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Track Your Progress</h2>
+                <p>Monitor your study habits and completion rate</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Completion Stats</h3>
+                            <div class="chart-container">
+                                <canvas id="progressChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Study Streak</h3>
+                            <div class="streak-container text-center">
+                                <div class="streak-count">
+                                    <span id="streakDays">0</span> days
+                                </div>
+                                <p class="text-muted">Current study streak</p>
+                                <div class="streak-calendar">
+                                    <!-- Calendar will be generated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">AI Study Suggestions</h3>
+                            <div id="aiSuggestions" class="ai-suggestions">
+                                <!-- Suggestions will appear here -->
+                            </div>
+                            <button id="refreshSuggestions" class="btn btn-sm btn-outline-primary mt-2">
+                                <i class="fas fa-sync-alt"></i> Get New Suggestions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="templates">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Study Templates</h2>
+                <p>Get started quickly with our pre-made templates</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="template-card">
+                        <div class="template-header bg-primary">
+                            <h3>Engineering Semester 1</h3>
+                        </div>
+                        <div class="template-body">
+                            <ul>
+                                <li>Calculus (High 🔴)</li>
+                                <li>Physics (High 🔴)</li>
+                                <li>Programming (Medium 🟡)</li>
+                                <li>Chemistry (Medium 🟡)</li>
+                                <li>Communication (Low 🟢)</li>
+                            </ul>
+                            <button class="btn btn-sm btn-primary w-100 use-template" data-template="engineering">Use Template</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="template-card">
+                        <div class="template-header bg-success">
+                            <h3>CBSE 12th Science</h3>
+                        </div>
+                        <div class="template-body">
+                            <ul>
+                                <li>Mathematics (High 🔴)</li>
+                                <li>Physics (High 🔴)</li>
+                                <li>Chemistry (High 🔴)</li>
+                                <li>Biology (Medium 🟡)</li>
+                                <li>English (Low 🟢)</li>
+                            </ul>
+                            <button class="btn btn-sm btn-success w-100 use-template" data-template="cbse">Use Template</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="template-card">
+                        <div class="template-header bg-info">
+                            <h3>Medical Entrance</h3>
+                        </div>
+                        <div class="template-body">
+                            <ul>
+                                <li>Biology (High 🔴)</li>
+                                <li>Chemistry (High 🔴)</li>
+                                <li>Physics (High 🔴)</li>
+                                <li>Logical Reasoning (Medium 🟡)</li>
+                            </ul>
+                            <button class="btn btn-sm btn-info w-100 use-template" data-template="medical">Use Template</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>StudyGenius</h4>
+                    <p>Smart study planning for academic success.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#planner">Planner</a></li>
+                        <li><a href="#progress">Progress</a></li>
+                        <li><a href="#templates">Templates</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 StudyGenius. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
